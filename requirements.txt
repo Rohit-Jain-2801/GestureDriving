@@ -1,5 +1,6 @@
 argparse
 psutil
 pywin32
+opencv-contrib-python
 mediapipe
 keyboard

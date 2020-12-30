@@ -109,7 +109,7 @@ def commandLineArg():
 		'--default_configuration',
 		action='store_true',
 		default=False,
-		help='Default Configuration'
+		help='Display Default Configuration'
 	)
 
 	parser.add_argument(
