@@ -31,6 +31,7 @@ Do you want to play racing game without touching your keyboard keys 🙄? Then y
         | -e | --edit | Edit Process Path(s) in Collection |
         | -dc | --default_configuration | Display Default Configuration |
         | -c | --configure | Run with Manual Configuration. Place "-1" to skip |
+        
         **Note:** -c takes a number of arguments/values-
         - `frame_width`: width of the input camera video
         - `frame_height`: height of the input camera video
