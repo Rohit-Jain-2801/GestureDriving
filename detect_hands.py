@@ -9,7 +9,7 @@ import key_mapping
 
 
 class GestureDriving:
-	def __init__(self, proc, frame_width=720, frame_height=720, fps_div=1, min_detection_conf=0.5, min_tracking_conf=0.5, measure=0, nitrous=0, dir_thr_sm=10, dir_thr_bg=30):
+	def __init__(self, proc, frame_width=720, frame_height=720, fps_div=1, min_detection_conf=0.5, min_tracking_conf=0.5, measure=0, nitrous=0, dir_thr_sm=10, dir_thr_bg=30, app_flag=False):
 		'''
 		`Input`
 			- proc: psutil.Process object
@@ -22,6 +22,7 @@ class GestureDriving:
 			- nitrous: `0` for no-nitrous or `1` for nitrous support
 			- dir_thr_sm: direction threshold small
 			- dir_thr_bg: direction threshold big
+			- app_flag: apply keyboard mapping to all applications
 
 		`Output`
 			- GestureDriving class object
@@ -36,6 +37,7 @@ class GestureDriving:
 		self.nitrous = nitrous
 		self.direction_threshold_small = dir_thr_sm
 		self.direction_threshold_big = dir_thr_bg
+		self.app_flag = app_flag
 
 		self.mp_drawing = mp.solutions.drawing_utils
 		self.mp_hands = mp.solutions.hands
@@ -212,7 +214,7 @@ class GestureDriving:
 					# calculating hand/palm size
 					# self.hand_size = abs(self.dct[1][0][1] - self.dct[0][0][1])
 					self.hand_size = abs(self.dct[6][0][1] - self.dct[0][0][1])
-					self.threshold = 0.37 * self.hand_size
+					self.threshold = 0.38 * self.hand_size
 
 					# checking the order of hand detected (0: Left, 1: Right)
 					self.first_hand = bool(self.results.multi_handedness[0].classification[0].index)
@@ -256,6 +258,8 @@ class GestureDriving:
 						self.theta = math.degrees(math.atan(self.tan_theta))
 					except ZeroDivisionError:
 						self.theta = 90
+					except:
+						self.theta = 0
 
 					# determining direction
 					self.direction_big_flag = False
@@ -271,7 +275,7 @@ class GestureDriving:
 					# checking if there is a process or dummy-mode
 					if self.proc:
 						# checking if process window is focused
-						if (self.proc.pid == win32process.GetWindowThreadProcessId(win32gui.GetForegroundWindow())[-1]):
+						if ((self.proc.pid == win32process.GetWindowThreadProcessId(win32gui.GetForegroundWindow())[-1]) or self.app_flag):
 							# applying direction
 							if (self.cur_dir != self.prev_dir):
 								key_mapping.release(key=self.prev_dir)

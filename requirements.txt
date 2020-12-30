@@ -1,0 +1,5 @@
+argparse
+psutil
+pywin32
+mediapipe
+keyboard
