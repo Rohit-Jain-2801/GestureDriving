@@ -80,7 +80,8 @@ Do you want to play racing game without touching your keyboard keys 🙄? Then y
 * Determining if enlisted process is focused
     + Used [win32gui](http://timgolden.me.uk/pywin32-docs/win32gui.html) library to get `hwnd`, passing it to [win32process](http://timgolden.me.uk/pywin32-docs/win32process.html) library to get it's corresponding `pid`.
     + This is followed by matching it to enlisted process `pid` got from psutil.
-    + If both the pids' matches, then key-mapping are performed else not. This ensures key-mappings are restricted to enlisted process only.
+    + If both the pids' matches, then key-mapping are performed else not.
+    + This ensures key-mappings are restricted to enlisted process only.
 
 <br/>
 
