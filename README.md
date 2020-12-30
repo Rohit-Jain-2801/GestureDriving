@@ -16,6 +16,11 @@ Do you want to play racing game without touching your keyboard keys 🙄? Then y
 
 <br/>
 
+## Video Demonstration
+[![GestureDriving Gameplay](https://img.youtube.com/vi/JV34EVwH1cs/maxresdefault.jpg)](https://youtu.be/JV34EVwH1cs)
+
+<br/>
+
 ## Walkthrogh
 * Taking arguments from terminal
     + Used [argparse](https://docs.python.org/3/library/argparse.html) library to handle command-line arguments.
