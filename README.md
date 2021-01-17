@@ -22,7 +22,7 @@ Do you want to play racing game without touching your keyboard keys 🙄? Then y
 
 <br/>
 
-## Walkthrogh
+## Walkthrough
 * Taking arguments from terminal
     + Used [argparse](https://docs.python.org/3/library/argparse.html) library to handle command-line arguments.
     + Tried to make sure, the whole program is manually configurable.
@@ -98,3 +98,4 @@ Do you want to play racing game without touching your keyboard keys 🙄? Then y
 * Improve thumb-based & turn action while playing.
 * Support for multiple applications at a time.
 * Support for OS other than Windows.
+* Automatic start-up support when OS loads.
